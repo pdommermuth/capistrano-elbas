@@ -19,7 +19,7 @@ def autoscale(groupname, properties = {})
     props = yield(instance, i) if block_given?
     props ||= properties
 
-    server instance.public_ip_address, props
+    server instance.aws_counterpart.public_ip_address, props
   end
 
   if instances.any?
