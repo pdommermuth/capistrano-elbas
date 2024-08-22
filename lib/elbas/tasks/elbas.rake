@@ -7,7 +7,7 @@ namespace :elbas do
 
     info "SSH commands:"
     env.servers.to_a.each.with_index do |server, i|
-      info "    #{i + 1}) ssh #{fetch(:user)}@#{server.aws_counterpart.hostname}"
+      info "    #{i + 1}) ssh #{fetch(:user)}@#{server.aws_counterpart.public_ip_address}"
     end
   end
 
