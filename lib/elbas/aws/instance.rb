@@ -13,7 +13,7 @@ module Elbas
       end
 
       def hostname
-        @public_dns + " Public_IP: #{@aws_counterpart.public_ip_address}"
+        @public_dns
       end
 
       def running?

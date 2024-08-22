@@ -13,13 +13,13 @@ def autoscale(groupname, properties = {})
 
   info "Auto Scaling Group: #{groupname}"
   instances.each.with_index do |instance, i|
-    info "Adding server: #{instance.hostname}"
+    info "Adding server: #{instance.aws_counterpart.public_ip_address}"
 
     props = nil
     props = yield(instance, i) if block_given?
     props ||= properties
 
-    server instance.hostname, props
+    server instance.public_ip_address, props
   end
 
   if instances.any?
