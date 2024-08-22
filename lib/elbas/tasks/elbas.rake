@@ -23,6 +23,7 @@ namespace :elbas do
       ami = Elbas::AWS::AMI.create asg.instances.running.sample
       ami.tag 'ELBAS-Deploy-group', asg.name
       ami.tag 'ELBAS-Deploy-id', env.timestamp.to_i.to_s
+      ami.tag 'ELBAS-Deploy-date', Time.now.to_s
       info  "Created AMI: #{ami.id}"
 
       info "Updating launch template with the new AMI..."
