@@ -29,11 +29,11 @@ namespace :elbas do
       launch_template = asg.launch_template.update ami
       info "Updated launch template, new default version = #{launch_template.version}"
 
-      info "Cleaning up old AMIs..."
-      ami.ancestors.each do |ancestor|
-        info "Deleting old AMI: #{ancestor.id}"
-        ancestor.delete
-      end
+      # info "Cleaning up old AMIs..."
+      # ami.ancestors.each do |ancestor|
+      #   info "Deleting old AMI: #{ancestor.id}"
+      #   ancestor.delete
+      # end
 
       info "Deployment complete!"
     end
