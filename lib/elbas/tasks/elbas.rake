@@ -17,7 +17,7 @@ namespace :elbas do
       asg = Elbas::AWS::AutoscaleGroup.new aws_autoscale_group_name
 
       puts "Sleep 2 minutes to allow flushing memory to disk to happen"
-      sleep(2.minutes)
+      sleep(120)
 
       info "Creating AMI from a running instance..."
       ami = Elbas::AWS::AMI.create asg.instances.running.sample
